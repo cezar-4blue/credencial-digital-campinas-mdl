@@ -66,12 +66,12 @@ export function CredentialForm({ onSuccess, utmParams }: Props) {
   const onSubmit = async (data: CredentialFormData) => {
     setIsSubmitting(true);
     try {
-      const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzzXMuwRrPYnAZ1QWK_9Y3OeY9PnfGImZDsNjGDFJYVntcS03QWuDYeb60lmctPPodlKA/exec";
+      const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzg9ju64wdK2DPCtpOT_LV25jj0BDs3w6RV-Brr6CPe-u7wEfXxtZJE8VMhzshZURjrYg/exec";
       
       const payload = {
         nome: data.nomeCompleto,
         email: data.email,
-        whatsapp: `${data.ddd} ${data.whatsapp}`,
+        whatsapp: `${data.ddd.replace('+', '')} ${data.whatsapp}`,
         faturamento: data.faturamento,
         timestamp: new Date().toISOString(),
         utm_source: utmParams?.utm_source || "",
